@@ -1,39 +1,52 @@
 # DataFlowLab
 
-Laboratorio de flujos de datos y concurrencia.  
-Demuestra manejo de estado, resiliencia y asincronía moderna en iOS.
+**Exploración de manejo de estado, concurrencia moderna y resiliencia.**
+
+`DataFlowLab` permite experimentar con `async/await`, `Combine` y estructuras modernas para construir flujos de datos seguros, reactivos y predecibles.
 
 ---
 
 ## Propósito
 
-Practicar el manejo seguro y eficiente del estado en aplicaciones reales, utilizando técnicas modernas como `async/await`, `Combine` y tareas concurrentes.
+- Probar distintos modelos de estado en escenarios reales.
+- Analizar puntos de falla y recuperación de datos.
+- Integrar persistencia y recuperación sin bloquear la UI.
 
 ---
 
 ## Contenido
 
-- Manejo de errores y cancelaciones
-- Integración con servicios simulados
-- Ejecución concurrente segura
-- Estrategias de recuperación ante fallos
+- Modelos de estado centralizados (ObservableObject, StateObject).
+- Ejecuciones controladas con `async/await`.
+- Integración básica de `Combine` para flujos reactivos.
+- Simulación de errores, estados de carga, y recuperación.
 
 ---
 
-## Ejemplo
+## Pruebas
 
-```swift
-Task {
-    let result = try await viewModel.fetchSecureContent()
-    await MainActor.run {
-        self.state = .loaded(result)
-    }
-}
-```
+| Componente     | Tipo de prueba         |
+|----------------|------------------------|
+| Estado         | Unitarias              |
+| Carga remota   | Simulación + async     |
+| Recuperación   | Validación de fallback |
 
 ---
 
-## Integración con Seguridad
+## Integración
 
-Incluye flujos de datos protegidos con `SecurityKit`, manejo de credenciales sensibles, validaciones y recuperación segura ante fallos.
+Usado desde `ProductSuiteApp` como módulo exploratorio. Permite aislar problemas de concurrencia y probar su impacto en la experiencia del usuario.
 
+---
+
+## Requisitos
+
+- iOS 15+
+- Swift 6
+- Swift Package Manager
+
+---
+
+## Licencia
+
+MIT © Matías Adrián Molina
