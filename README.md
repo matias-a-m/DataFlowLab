@@ -7,8 +7,7 @@ Demuestra manejo de estado, resiliencia y asincronía moderna en iOS.
 
 ## Propósito
 
-Dominar el manejo de estado y concurrencia en aplicaciones reales.  
-Aplicar `Combine`, `async/await`, `Task`, y patrones de resiliencia.
+Practicar el manejo seguro y eficiente del estado en aplicaciones reales, utilizando técnicas modernas como `async/await`, `Combine` y tareas concurrentes.
 
 ---
 
@@ -17,15 +16,7 @@ Aplicar `Combine`, `async/await`, `Task`, y patrones de resiliencia.
 - Manejo de errores y cancelaciones
 - Integración con servicios simulados
 - Ejecución concurrente segura
-- Estrategias de recuperación
-
----
-
-## Ideal para:
-
-- Comprender los desafíos reales del data flow
-- Practicar arquitecturas resilientes
-- Validar flujos asincrónicos en UI reales
+- Estrategias de recuperación ante fallos
 
 ---
 
@@ -33,9 +24,16 @@ Aplicar `Combine`, `async/await`, `Task`, y patrones de resiliencia.
 
 ```swift
 Task {
-    let result = try await viewModel.fetchContacts()
+    let result = try await viewModel.fetchSecureContent()
     await MainActor.run {
         self.state = .loaded(result)
     }
 }
+```
+
+---
+
+## Integración con Seguridad
+
+Incluye flujos de datos protegidos con `SecurityKit`, manejo de credenciales sensibles, validaciones y recuperación segura ante fallos.
 
